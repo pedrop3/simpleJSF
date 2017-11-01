@@ -19,7 +19,14 @@
 		
 		<h:outputText  value="#{pessoaBean.nomeCompleto}"/><br/>
 		
-		<h:commandButton value="Botão" action="#{pessoaBean.mostrarNome}"/>
+		<h:commandButton value="Botão" action="#{pessoaBean.addNome}"/>
+		
+		<h:dataTable value="#{pessoaBean.nomes}" var="nome">
+			<h:column>
+				<h:outputText value="#{nome}"></h:outputText><br/>
+			</h:column>
+		
+		</h:dataTable>
 	
 	</h:form>
 </h:body>

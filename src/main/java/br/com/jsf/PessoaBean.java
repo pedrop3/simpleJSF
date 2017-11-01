@@ -1,16 +1,27 @@
 package br.com.jsf;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 
 //Controlador pagina JSF
+@ApplicationScoped
 @ManagedBean(name = "pessoaBean")
 public class PessoaBean {
 	private String nome;
 	private String sobrenome;
 	private String nomeCompleto;
 	
-	public String mostrarNome(){
-		nomeCompleto = nome +" "+sobrenome;
+	private List<String> nomes = new ArrayList<String>();
+	
+	
+	public String addNome(){
+		nomes.add(nome);
 		return ""; // JSF irá ficar na mesma pagina
 	}
 	
@@ -31,6 +42,14 @@ public class PessoaBean {
 	}
 	public void setNomeCompleto(String nomeCompleto) {
 		this.nomeCompleto = nomeCompleto;
+	}
+
+	public List<String> getNomes() {
+		return nomes;
+	}
+
+	public void setNomes(List<String> nomes) {
+		this.nomes = nomes;
 	}
 	
 }
