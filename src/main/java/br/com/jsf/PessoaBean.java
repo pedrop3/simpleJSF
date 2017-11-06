@@ -18,6 +18,9 @@ public class PessoaBean {
 	private String sobrenome;
 	private String nomeCompleto;
 	
+	private String senha;
+	private String texto;
+	
 	private List<String> nomes = new ArrayList<String>();
 	
 	private HtmlCommandButton commandButton;
@@ -71,4 +74,22 @@ public class PessoaBean {
 	public void setCommandButton(HtmlCommandButton commandButton) {
 		this.commandButton = commandButton;
 	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
+	public String getTexto() {
+		return texto;
+	}
+
+	public void setTexto(String texto) {
+		this.texto = texto;
+	}
+	
+	
 }

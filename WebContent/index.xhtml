@@ -6,14 +6,27 @@
 	xmlns:p="http://primefaces.org/ui">
 <head>
 <title>JSF</title>
+<script>
+	function alterarValorCampo() {
+		//alert("Clicou");
+		var campo = document.getElementById('formPessoa:nome');
+		campo.value = 'eu cliquei no campo';
+	}
+</script>
+
 </head>
 <h:body>
-	<h1>MADAFOCA</h1>
+
 	<h:form id="formPessoa">
 	
 		<h1>Olá</h1>
-		<h:commandButton value="Navegar" action="home"/>
-		<h:commandButton value="Navegar Explicita" action="explicita"/>
+		
+		<h:inputText id="nome"></h:inputText>
+		<h:commandButton value="Clicar" onclick="alterarValorCampo();"></h:commandButton>
+		
+		<br/>
+		<h:commandButton value="Navegar" action="home?faces-redirect=true"/>
+		<h:commandButton value="Navegar Explicita" action="explicita?faces-redirect=true" />
 	</h:form>
 </h:body>
 

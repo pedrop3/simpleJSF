@@ -8,7 +8,7 @@
 <title>JSF</title>
 </head>
 <h:body>
-	<h1>MADAFOCA</h1>
+
 	<h:form id="formPessoa">
 	
 		
@@ -16,8 +16,15 @@
 		<h:inputText id="campoNome" value="#{pessoaBean.nome}"/><br/>
 		Sobrenome:
 		<h:inputText id="campoSobrenome" value="#{pessoaBean.sobrenome}"/><br/>
+		Senha:
+		<h:inputSecret id="senha" value="#{pessoaBean.senha}"/><br/>
+		Texto:
+		<h:inputTextarea id="texto" value="#{pessoaBean.texto}" rows="3" cols="30"/>
 		
 		<h:outputText  value="#{pessoaBean.nomeCompleto}"/><br/>
+		
+		<h:outputLabel value="Nome:" for="camponome"/>
+		<h:inputText id="camponome" value="#{pessoaBean.nome}"/><!-- Usado para gravar -->
 		
 		<h:commandButton binding="#{pessoaBean.commandButton}" value="Botão" action="#{pessoaBean.addNomeDinamica}"/>
 		
