@@ -19,7 +19,7 @@
 		
 		<h:outputText  value="#{pessoaBean.nomeCompleto}"/><br/>
 		
-		<h:commandButton value="Botão" action="#{pessoaBean.addNome}"/>
+		<h:commandButton binding="#{pessoaBean.commandButton}" value="Botão" action="#{pessoaBean.addNomeDinamica}"/>
 		
 		<h:dataTable value="#{pessoaBean.nomes}" var="nome">
 			<h:column>

@@ -8,6 +8,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
+import javax.faces.component.html.HtmlCommandButton;
 
 //Controlador pagina JSF
 @ApplicationScoped
@@ -19,9 +20,21 @@ public class PessoaBean {
 	
 	private List<String> nomes = new ArrayList<String>();
 	
+	private HtmlCommandButton commandButton;
 	
 	public String addNome(){
 		nomes.add(nome);
+		return ""; // JSF irá ficar na mesma pagina
+	}
+		
+	public String addNomeDinamica(){
+		nomes.add(nome);
+		if (nomes.size() >= 3)
+		{
+			commandButton.setDisabled(true);
+			//Força o redirecionamento da pagina 
+			return "paginanavagada?faces-redirect=true";
+		}
 		return ""; // JSF irá ficar na mesma pagina
 	}
 	
@@ -52,4 +65,10 @@ public class PessoaBean {
 		this.nomes = nomes;
 	}
 	
+	public HtmlCommandButton getCommandButton() {
+		return commandButton;
+	}
+	public void setCommandButton(HtmlCommandButton commandButton) {
+		this.commandButton = commandButton;
+	}
 }
