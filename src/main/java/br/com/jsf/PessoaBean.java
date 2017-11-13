@@ -23,11 +23,15 @@ public class PessoaBean {
 	
 	
 	public String salvar(){
-		daoGeneric.salvar(pessoa);
-		pessoa = new Pessoa();
+		pessoa = daoGeneric.merge(pessoa);
 		return "";
 	}
 
+	public String novo()
+	{
+		pessoa = new Pessoa();
+		return "";
+	}
 
 	public Pessoa getPessoa() {
 		return pessoa;
