@@ -29,5 +29,27 @@ public class DaoGeneric<E> {
 		
 		return retorno;
 	}
-
+	
+	public void delete(E entidade){
+		EntityManager entityManager = JPAUtil.geEntityManager();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
+		
+		entityManager.remove(entidade);
+		
+		entityTransaction.commit();
+		entityManager.close();
+	}
+	public void deletePorID(E entidade){
+		EntityManager entityManager = JPAUtil.geEntityManager();
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
+		
+		Object id = JPAUtil.getPrimaryKey(entidade);
+		
+		entityManager.createQuery("delete from "+entidade.getClass().getCanonicalName()  +" where id = "+id).executeUpdate();
+		
+		entityTransaction.commit();
+		entityManager.close();
+	}
 }
